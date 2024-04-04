@@ -1,4 +1,6 @@
 import ExpoModulesCore
+import cocoa_whisper
+import Foundation
 
 public class WhisperKitExpoModule: Module {
   // Each module class must implement the definition function. The definition consists of components
@@ -30,6 +32,17 @@ public class WhisperKitExpoModule: Module {
       self.sendEvent("onChange", [
         "value": value
       ])
+    }
+      
+      AsyncFunction("transcribe") { (path: String) -> String  in
+          do {
+              let pipe = try await WhisperKit()
+              let transcription = try await pipe.transcribe(audioPath: path);
+              let val = transcription!.text
+              return val
+          } catch {
+              return "error " //+ String(error.localizedDescription)
+          }
     }
 
     // Enables the module to be used as a native view. Definition components that are accepted as part of the

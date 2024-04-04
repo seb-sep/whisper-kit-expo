@@ -1,5 +1,6 @@
 PODS:
   - boost (1.83.0)
+  - cocoa-whisper (0.1.1)
   - DoubleConversion (1.1.6)
   - EXConstants (15.4.5):
     - ExpoModulesCore
@@ -1072,6 +1073,7 @@ PODS:
     - React-perflogger (= 0.73.6)
   - SocketRocket (0.6.1)
   - WhisperKitExpo (0.1.0):
+    - cocoa-whisper
     - ExpoModulesCore
   - Yoga (1.14.0)
 
@@ -1137,6 +1139,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - cocoa-whisper
     - fmt
     - libevent
     - SocketRocket
@@ -1256,6 +1259,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
+  cocoa-whisper: 938481737c8b01882145b0aad8f5d71908370e0e
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   EXConstants: 988aa430ca0f76b43cd46b66e7fae3287f9cc2fc
   EXFont: f20669cb266ef48b004f1eb1f2b20db96cd1df9f
@@ -1311,9 +1315,9 @@ SPEC CHECKSUMS:
   React-utils: d16c1d2251c088ad817996621947d0ac8167b46c
   ReactCommon: 2aa35648354bd4c4665b9a5084a7d37097b89c10
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  WhisperKitExpo: 9d727f495c5868d641cb3f78c30d2c50d082cacd
+  WhisperKitExpo: 7febd25b053dd0c1dbb364f31ec93ca7f24c0c5d
   Yoga: d17d2cc8105eed528474683b42e2ea310e1daf61
 
-PODFILE CHECKSUM: 64d5b65aa6f2bbc411afdd86d0a9e774df39b9fb
+PODFILE CHECKSUM: 07f48e503b9dbb17b2219b29f251a3733b449771
 
 COCOAPODS: 1.14.3

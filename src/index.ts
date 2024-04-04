@@ -13,6 +13,9 @@ export function hello(): string {
   return WhisperKitExpoModule.hello();
 }
 
+export async function transcribe(fileURL: string): Promise<string> {
+    return await WhisperKitExpoModule.transcribe(fileURL);
+}
 export async function setValueAsync(value: string) {
   return await WhisperKitExpoModule.setValueAsync(value);
 }

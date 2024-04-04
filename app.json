@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "whisper-kit-expo",
+    "slug": "whisper-kit-expo",
+    "version": "0.1.0",
+    "description": "My new module",
+    "sdkVersion": "50.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.sebmicsep.whisper-kit-expo"
+    }
+  }
+}
