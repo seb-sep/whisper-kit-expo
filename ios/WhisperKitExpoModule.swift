@@ -41,7 +41,7 @@ public class WhisperKitExpoModule: Module {
               let val = transcription!.text
               return val
           } catch {
-              return "error " //+ String(error.localizedDescription)
+              return String(error.localizedDescription)
           }
     }
 
