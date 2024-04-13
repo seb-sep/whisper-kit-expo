@@ -8,6 +8,11 @@ export default function App() {
 
   const [transcription, setTranscription] = useState("");
   const [path, setPath] = useState("");
+  useEffect(() => {
+    WhisperKitExpo.loadTranscriber().then((success) =>
+      setTranscription(success ? "loading success" : "loading failure"),
+    );
+  }, []);
   
   return (
     <View style={styles.container}>
