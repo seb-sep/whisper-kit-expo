@@ -1,6 +1,5 @@
-# whisper-kit-expo
+# [whisper-kit-expo](https://www.npmjs.com/package/whisper-kit-expo)
 
-My new module
 
 # API documentation
 
