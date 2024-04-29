@@ -39,7 +39,7 @@ public class WhisperKitExpoModule: Module {
       AsyncFunction("transcribe") { (path: String) -> String in
           do {
               let pipe = try await getPipe()
-              let transcription: TranscriptionResult = try await pipe.transcribe(audioPath: path, decodeOptions: nil, callback: nil)[0]
+              let transcription: TranscriptionResult = try await pipe.transcribe(audioPath: path)[0]
               let val = transcription.text
               return val
           } catch {
