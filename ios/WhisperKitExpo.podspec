@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency 'ExpoModulesCore'
-  s.dependency 'cocoa-whisper'
+  # s.dependency 'cocoa-whisper'
+  s.spm_dependency 'WhisperKit/WhisperKit'
 
   # Swift/Objective-C compatibility
   s.pod_target_xcconfig = {

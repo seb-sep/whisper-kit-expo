@@ -11,6 +11,12 @@ platform :ios, podfile_properties['ios.deploymentTarget'] || '16.0'
 install! 'cocoapods',
   :deterministic_uuids => false
 
+plugin "cocoapods-spm"
+config_cocoapods_spm(
+  dont_prebuild_macros: true,
+  default_macro_config: "debug"
+)
+
 prepare_react_native_project!
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
@@ -40,6 +46,11 @@ end
 target 'whisperkitexpoexample' do
   use_expo_modules!
   config = use_native_modules!
+
+spm_pkg "WhisperKit",
+  :url => "https://github.com/argmaxinc/WhisperKit.git",
+  :version => "0.6.0",
+  :products => ["WhisperKit"]
 
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
   use_frameworks! :linkage => ENV['USE_FRAMEWORKS'].to_sym if ENV['USE_FRAMEWORKS']
