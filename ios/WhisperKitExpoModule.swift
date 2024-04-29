@@ -1,5 +1,5 @@
 import ExpoModulesCore
-import cocoa_whisper
+import WhisperKit
 import Foundation
 
 public class WhisperKitExpoModule: Module {
@@ -39,8 +39,8 @@ public class WhisperKitExpoModule: Module {
       AsyncFunction("transcribe") { (path: String) -> String in
           do {
               let pipe = try await getPipe()
-              let transcription = try await pipe.transcribe(audioPath: path);
-              let val = transcription!.text
+              let transcription: TranscriptionResult = try await pipe.transcribe(audioPath: path, decodeOptions: nil, callback: nil)[0]
+              let val = transcription.text
               return val
           } catch {
               return String(error.localizedDescription)
