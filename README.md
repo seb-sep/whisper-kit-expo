@@ -46,6 +46,11 @@ spm_pkg "WhisperKit",
   :products => ["WhisperKit"]
 ```
 
+Update gitignore:
+```
+ios/.spm.pods
+```
+
 Reference the example app in the repository.
 
 Run `npx pod-install` after installing the npm package.
