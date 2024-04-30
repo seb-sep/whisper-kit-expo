@@ -40,15 +40,15 @@ public class WhisperKitExpoModule: Module {
         
         AsyncFunction("transcribe") { (path: String) -> TranscribeResult in
             if !initializing {
-                return TranscribeResult(success: false, result: "loadTranscriber() has not been called yet")
+                return TranscribeResult(success: false, value: "loadTranscriber() has not been called yet")
             }
             
             do {
                 let pipe = try await getPipe()
                 let transcription =  try await pipe.transcribe(path: path)
-                return TranscribeResult(success: true, result: transcription)
+                return TranscribeResult(success: true, value: transcription)
             } catch {
-                return TranscribeResult(success: false, result: error.localizedDescription)
+                return TranscribeResult(success: false, value: error.localizedDescription)
             }
         }
     }
@@ -74,5 +74,5 @@ struct TranscribeResult: Record {
     @Field
     // When transcription is sucessful, this is the transcription,
     // when it fails, it is an error message or empty
-    var result: String = ""
+    var value: String = ""
 }
