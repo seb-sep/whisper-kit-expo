@@ -1,10 +1,21 @@
 # [whisper-kit-expo](https://www.npmjs.com/package/whisper-kit-expo)
 
+# Usage
+You must first load the transcriber into memory. This can be done in one of two ways: 
 
-# API documentation
+- Wrapping the root component in `TranscriberInitializer`, which loads the transcriber on compnent mount
+```
+<TranscriberInitializer>
+    <children>
+</TranscriberInitializer>
+```
 
-- [Documentation for the main branch](https://github.com/expo/expo/blob/main/docs/pages/versions/unversioned/sdk/whisper-kit-expo.md)
-- [Documentation for the latest stable release](https://docs.expo.dev/versions/latest/sdk/whisper-kit-expo/)
+- Call `loadTranscriber()` explicitly
+
+After this has been done, transcribe a file by calling `transcribe()` with the path to the file. Note that `transcribe()` will fail
+if `loadTranscriber()` has never been called, and will block if `loadTranscriber()` has been called but not completed.
+`transcribe()` also automatically handles sequential execution with Swift actors, so the function can be called concurrently
+across as many components as you like.
 
 # Installation in managed Expo projects
 
