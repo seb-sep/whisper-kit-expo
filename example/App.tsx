@@ -2,19 +2,15 @@ import { useEffect, useState } from 'react';
 import * as fs from 'expo-file-system';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
-import * as WhisperKitExpo from 'whisper-kit-expo';
+import { TranscriberInitializer, transcribe } from 'whisper-kit-expo';
 
 export default function App() {
 
   const [transcription, setTranscription] = useState("");
   const [path, setPath] = useState("");
-  useEffect(() => {
-    WhisperKitExpo.loadTranscriber().then((success) =>
-      setTranscription(success ? "loading success" : "loading failure"),
-    );
-  }, []);
   
   return (
+    <TranscriberInitializer>
     <View style={styles.container}>
       <Text>Enter (absolute) filepath to transcribe here:</Text>
       <TextInput
@@ -28,11 +24,12 @@ export default function App() {
       />
       <Button
         title='Transcribe'
-        onPress={async () => {setTranscription(await WhisperKitExpo.transcribe(path))}}
-      />
+        onPress={async () => {setTranscription(await transcribe(path))}}
+        />
       <Text>Transcription from WhisperKit is:</Text>
       <Text>{transcription}</Text>
     </View>
+</TranscriberInitializer>
   );
 }
 

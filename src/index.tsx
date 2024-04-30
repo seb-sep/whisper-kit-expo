@@ -2,6 +2,17 @@
 // and on native platforms to WhisperKitExpo.ts
 import WhisperKitExpoModule from './WhisperKitExpoModule';
 
+import { useEffect } from 'react';
+
+export const TranscriberInitializer = ({ children }) => {
+
+  useEffect(() => {
+    console.log("Running the initialization effect for the transcriber");
+    loadTranscriber().then((res) => console.log(res ? "success" : "failure"));
+  }, []);
+
+  return <>{children}</>;
+}
 
 export function hello(): string {
   return WhisperKitExpoModule.hello();
@@ -19,5 +30,3 @@ export async function transcribe(file: string): Promise<string> {
 export async function loadTranscriber(): Promise<boolean> {
   return await WhisperKitExpoModule.loadTranscriber();
 }
-
-
