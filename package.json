@@ -1,7 +1,7 @@
 {
   "name": "whisper-kit-expo",
   "version": "1.1.0",
-  "description": "My new module",
+  "description": "RN Expo wrapper for WhisperKit Swift package",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
