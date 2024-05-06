@@ -33,7 +33,7 @@ npm install whisper-kit-expo
 
 ### Configure for iOS
 
-__IMPORTANT__: the [cocoapods-spm] plugin must be configured with your React Native project before setup. Check the plugin repository for more details, as well as the example app in this project. You must:
+__IMPORTANT__: This project uses the [cocoapods-spm](https://github.com/trinhngocthuyen/cocoapods-spm) plugin to allow the WhisperKit SPM package to interoperate with the CocoaPods Expo module. Its use requires the installation of the plugin and the addition of some lines to your Podfile (note that `whisper-kit-expo` requires a bare workflow for Expo projects). These steps should be automatically handled by `npm install`, if not, don't panic! Perform the following steps:
 
 Download `cocoapods-spm`:
 ```{bash}
@@ -42,6 +42,8 @@ sudo gem install cocoapods-spm
 
 Add plugin and dependency to Podfile:
 ```{ruby}
+### START WHISPERKIT PLUGIN SCRIPT ###
+
 plugin "cocoapods-spm"
 
 config_cocoapods_spm(
@@ -49,15 +51,14 @@ config_cocoapods_spm(
   default_macro_config: "debug"
 )
 
-...
-
 spm_pkg "WhisperKit",
   :url => "https://github.com/argmaxinc/WhisperKit.git",
-  :version => "<version>",
+  :version => "0.6.0",
   :products => ["WhisperKit"]
+### END WHISPERKIT PLUGIN SCRIPT ###
 ```
 
-Update gitignore:
+Update gitignore with:
 ```
 ios/.spm.pods
 ```
