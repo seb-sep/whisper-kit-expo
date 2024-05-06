@@ -53,7 +53,7 @@ if (!fs.existsSync(podfilePath)) {
     process.exit(0);
 }
 
-let podfile = fs.readFileSync(podfilePath).toString();
+const podfile = fs.readFileSync(podfilePath).toString();
 
 // If the script has already been added, do not add again
 if (pluginRegex.test(podfile)) {
