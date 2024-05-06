@@ -46,11 +46,6 @@ Add plugin and dependency to Podfile:
 
 plugin "cocoapods-spm"
 
-config_cocoapods_spm(
-  dont_prebuild_macros: true,
-  default_macro_config: "debug"
-)
-
 spm_pkg "WhisperKit",
   :url => "https://github.com/argmaxinc/WhisperKit.git",
   :version => "0.6.0",
