@@ -21,7 +21,7 @@ const projectRoot = process.env.INIT_CWD;
 const podfilePath = path.join(projectRoot, 'ios', 'Podfile');
 
 const pluginRegex = /### START WHISPERKIT PLUGIN SCRIPT ###[\s\S]*### END WHISPERKIT PLUGIN SCRIPT ###/;
-const pluginScript = `
+const pluginScript = `\n
 ### START WHISPERKIT PLUGIN SCRIPT ###
 
 # This script was automatically added by the whisper-kit-expo library upon installation.
@@ -72,7 +72,7 @@ if (!fs.existsSync(gitignorePath)) {
     process.exit(0);
 }
 const gitignore = fs.readFileSync(gitignorePath).toString();
-const ignoreSPM = `
+const ignoreSPM = `\n
 # Ignore SPM Pods directory
 ios/.spm.pods
 `;
