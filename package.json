@@ -45,5 +45,9 @@
     "expo": "*",
     "react": "*",
     "react-native": "*"
+  },
+  "whisperKit": {
+    "url": "https://github.com/argmaxinc/WhisperKit",
+    "version": "0.6.1"
   }
 }

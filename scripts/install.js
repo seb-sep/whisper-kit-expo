@@ -16,10 +16,17 @@ if (!gems.includes('cocoapods-spm')) {
     }
 }
 
+
 // open Podfile
-const projectRoot = process.env.INIT_CWD;
+const projectRoot = process.env.INIT_CWD; // this is the root of the project installing INTO, not this package
 const podfilePath = path.join(projectRoot, 'ios', 'Podfile');
 
+const packageJson = require(path.join(__dirname, '..', 'package.json'));
+const whisperKitVersion = packageJson['whisperKit']['version'];
+if (whisperKitVersion === undefined) {
+    console.error('Could not find whisperKit version in package.json');
+    process.exit(1);
+}
 const pluginRegex = /### START WHISPERKIT PLUGIN SCRIPT ###[\s\S]*### END WHISPERKIT PLUGIN SCRIPT ###/;
 const pluginScript = `\n
 ### START WHISPERKIT PLUGIN SCRIPT ###
@@ -35,7 +42,7 @@ plugin "cocoapods-spm"
 
 spm_pkg "WhisperKit",
   :url => "https://github.com/argmaxinc/WhisperKit.git",
-  :version => "0.6.0",
+  :version => "${whisperKitVersion}",
   :products => ["WhisperKit"]
 ### END WHISPERKIT PLUGIN SCRIPT ###
 `;
