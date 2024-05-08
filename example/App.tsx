@@ -11,25 +11,25 @@ export default function App() {
   
   return (
     <TranscriberInitializer>
-    <View style={styles.container}>
-      <Text>Enter (absolute) filepath to transcribe here:</Text>
-      <TextInput
-        style={styles.textBox}
-        value={path}
-        onChangeText={setPath}
-        multiline
-        numberOfLines={4}
-        placeholder='filepath'
-        autoCapitalize='none'
-      />
-      <Button
-        title='Transcribe'
-        onPress={async () => {setTranscription(await transcribe(path))}}
+      <View style={styles.container}>
+        <Text>Enter (absolute) filepath to transcribe here:</Text>
+        <TextInput
+          style={styles.textBox}
+          value={path}
+          onChangeText={setPath}
+          multiline
+          numberOfLines={4}
+          placeholder='absolute filepath'
+          autoCapitalize='none'
         />
-      <Text>Transcription from WhisperKit is:</Text>
-      <Text>{transcription}</Text>
-    </View>
-</TranscriberInitializer>
+        <Button
+          title='Transcribe'
+          onPress={async () => {setTranscription(await transcribe(path))}}
+          />
+        <Text>Transcription from WhisperKit is:</Text>
+        <Text>{transcription}</Text>
+      </View>
+    </TranscriberInitializer>
   );
 }
 
