@@ -4,7 +4,7 @@
 You must first load the transcriber into memory. This can be done in one of two ways: 
 
 - Wrapping the root component in `TranscriberInitializer`, which loads the transcriber on compnent mount
-```
+```jsx
 <TranscriberInitializer>
     <children>
 </TranscriberInitializer>
@@ -14,7 +14,7 @@ You must first load the transcriber into memory. This can be done in one of two 
 
 After this has been done, transcribe a file by calling `transcribe()` with the path or URI to the file:
 
-```
+```js
 import { transcribe } from 'whisper-kit-expo';
 const transcription = await transcribe("path/to/your/audio.{wav,mp3,m4a,flac}")
 ```
@@ -37,14 +37,13 @@ See [this article](https://docs.expo.dev/modules/overview/) for installation in 
 __IMPORTANT__: This project uses the [cocoapods-spm](https://github.com/trinhngocthuyen/cocoapods-spm) plugin to allow the WhisperKit SPM package to interoperate with the CocoaPods Expo module. Its use requires the installation of the plugin and the addition of some lines to your Podfile (note that `whisper-kit-expo` requires a bare workflow for Expo projects). These steps should be automatically handled by `npm install`, if not, don't panic! Perform the following steps:
 
 Download `cocoapods-spm`:
-```{bash}
+```
 sudo gem install cocoapods-spm
 ```
 
 Add plugin and dependency to Podfile:
-```{ruby}
+```ruby
 ### START WHISPERKIT PLUGIN SCRIPT ###
-
 plugin "cocoapods-spm"
 
 spm_pkg "WhisperKit",
