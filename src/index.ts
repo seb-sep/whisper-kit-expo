@@ -2,17 +2,9 @@
 // and on native platforms to WhisperKitExpo.ts
 import { TranscribeResult } from './WhisperKitExpo.types';
 import WhisperKitExpoModule from './WhisperKitExpoModule';
-import { useEffect } from 'react';
+import { TranscriberInitializer } from './TranscriberInitializer';
 
-export const TranscriberInitializer = ({ children }) => {
 
-  useEffect(() => {
-    console.log("Running the initialization effect for the transcriber");
-    loadTranscriber().then((res) => console.log(res ? "success" : "failure"));
-  }, []);
-
-  return <>{children}</>;
-}
 
 // If file is a file URI, trim it to a path
 export async function transcribe(file: string): Promise<string> {
@@ -30,3 +22,5 @@ export async function transcribe(file: string): Promise<string> {
 export async function loadTranscriber(): Promise<boolean> {
   return await WhisperKitExpoModule.loadTranscriber();
 }
+
+export { TranscriberInitializer };
