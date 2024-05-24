@@ -48,6 +48,6 @@
   },
   "whisperKit": {
     "url": "https://github.com/argmaxinc/WhisperKit",
-    "version": "0.6.1"
+    "version": "0.7.0"
   }
 }
